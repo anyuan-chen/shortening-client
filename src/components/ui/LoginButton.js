@@ -11,7 +11,13 @@ const StyledLoginButton = styled.div`
 `;
 export default function LoginButton({ children, href }) {
   return (
-    <Link to={href} style={{textDecoration: "none"}}>
+    <Link
+      to={href}
+      style={{
+        textUnderlineOffset: "5px",
+        textDecorationColor: "var(--blue)",
+      }}
+    >
       <StyledLoginButton>{children}</StyledLoginButton>
     </Link>
   );

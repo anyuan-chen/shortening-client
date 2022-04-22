@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../ui/Header";
-import TextInput from "../ui/TextInput";
-import Button from "../ui/Button";
-import LoginButton from "../ui/LoginButton";
+import Header from "../components/ui/Header";
+import TextInput from "../components/ui/TextInput";
+import Button from "../components/ui/Button";
+import LoginButton from "../components/ui/LoginButton";
 import { useState } from "react";
 const LoginBar = styled.div`
   display: flex;

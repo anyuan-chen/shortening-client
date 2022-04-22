@@ -18,7 +18,7 @@ const theme = {
     fontStyle: "normal",
     fontWeight: 400,
     fontSize: "24px",
-    color: "var(--ocean)",
+    color: "var(--blue)",
   },
   f1: {
     fontFamily: "ITC Avant Garde",
