@@ -65,11 +65,10 @@ const Sky = styled.div`
   left: -10%;
   background: var(--sky);
 `;
-const SERVER_URL = process.env.SERVER_URL;
 export default function Home() {
   const [link, setLink] = useState("");
   const [modalLink, setModalLink] = useState("google.com");
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const submitLink = async () => {
     // const data = { long: link };
