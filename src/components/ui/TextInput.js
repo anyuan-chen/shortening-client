@@ -7,7 +7,10 @@ const Large = styled.input`
   font-size: ${(props) => props.theme.f1.fontSize};
   line-height: ${(props) => props.theme.f1.lineHeight};
   color: ${(props) => props.theme.f1.color};
-  padding: 0.5rem 1rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.2rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
   border: 2px solid hsl(37, 14%, 64%);
   background: var(--beach);
   outline: none;

@@ -6,7 +6,10 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
   font-style: ${(props) => props.theme.b1.fontStyle};
   font-family: ${(props) => props.theme.b1.fontFamily};
   font-weight: ${(props) => props.theme.b1.fontWeight};
