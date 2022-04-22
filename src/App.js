@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import theme from "./theme";
-import Home from "./components/home/Home";
+import Home from "./pages/Home";
 function App() {
-
   return (
     <ThemeProvider theme={theme}>
       <Routes>

@@ -5,6 +5,7 @@ import TextInput from "../components/ui/TextInput";
 import Button from "../components/ui/Button";
 import LoginButton from "../components/ui/LoginButton";
 import { useState } from "react";
+import Modal from "../components/home/Modal";
 const LoginBar = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -16,6 +17,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background: var(--background);
+  filter: ${(props) =>
+    props.modalVisible ? "brightness(50%)" : "brightness(100%)"};
 `;
 const Content = styled.div`
   padding: 2rem 4rem;
@@ -26,7 +29,7 @@ const Form = styled.form`
   flex-direction: column;
   row-gap: 2rem;
   padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 `;
 const Circles = styled.div`
   position: relative;
@@ -60,31 +63,54 @@ const Sky = styled.div`
   left: -10%;
   background: var(--sky);
 `;
+const SERVER_URL = process.env.SERVER_URL;
 export default function Home() {
   const [link, setLink] = useState("");
+  const [modalLink, setModalLink] = useState("");
+  const [modalVisible, setModalVisible] = useState(true);
+
+  const submitLink = async () => {
+    const data = { long: link };
+    const response = await fetch(SERVER_URL, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: { "Content-Type": "application/json" },
+      body: data,
+    });
+    setModalLink(response);
+  };
+
   return (
-    <Container>
-      <Content>
-        <LoginBar>
-          <LoginButton href="/login">Log in</LoginButton>
-          <LoginButton href="/signup">Sign up</LoginButton>
-        </LoginBar>
-        <Header variant="h1">shortening</Header>
-        <Form>
-          <TextInput
-            value={link}
-            onChange={(event) => setLink(event.target.value)}
-            variant="f1"
-            placeholder={"enter link here.."}
-          ></TextInput>
-        </Form>
-        <Button>generate!</Button>
-      </Content>
-      <Circles>
-        <Sky></Sky>
-        <Teal></Teal>
-        <Beach></Beach>
-      </Circles>
-    </Container>
+    <>
+      <Container modalVisible = {modalVisible}>
+        <Content>
+          <LoginBar>
+            <LoginButton href="/login">Log in</LoginButton>
+            <LoginButton href="/signup">Sign up</LoginButton>
+          </LoginBar>
+          <Header variant="h1">shortening</Header>
+          <Form>
+            <TextInput
+              value={link}
+              onChange={(event) => setLink(event.target.value)}
+              variant="f1"
+              placeholder={"enter link here.."}
+            ></TextInput>
+          </Form>
+          <Button onClick={submitLink}>generate!</Button>
+        </Content>
+        <Circles>
+          <Sky></Sky>
+          <Teal></Teal>
+          <Beach></Beach>
+        </Circles>
+      </Container>{" "}
+      <Modal
+        link={link}
+        closeModal={() => setModalVisible(false)}
+        visible={modalVisible}
+      ></Modal>
+    </>
   );
 }
