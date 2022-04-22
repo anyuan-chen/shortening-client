@@ -8,8 +8,8 @@ const StyledButton = styled.button`
   justify-content: center;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.4rem;
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
   font-style: ${(props) => props.theme.b1.fontStyle};
   font-family: ${(props) => props.theme.b1.fontFamily};
   font-weight: ${(props) => props.theme.b1.fontWeight};

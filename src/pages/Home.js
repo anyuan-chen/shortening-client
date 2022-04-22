@@ -38,12 +38,13 @@ const Circles = styled.div`
   padding-top: 10vh;
 `;
 const Teal = styled.div`
-  height: 50vw;
-  width: 50vw;
+  height: 70vw;
+  width: 70vw;
   background: rgba(233, 218, 193, 0.7);
   border-radius: 100%;
   position: absolute;
   left: 60%;
+  bottom: -130%;
   background: var(--teal);
 `;
 const Beach = styled.div`
@@ -52,6 +53,7 @@ const Beach = styled.div`
   background: rgba(233, 218, 193, 0.7);
   border-radius: 100%;
   position: absolute;
+  bottom: -110%;
   left: 25%;
 `;
 const Sky = styled.div`

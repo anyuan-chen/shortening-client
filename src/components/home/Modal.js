@@ -1,9 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../ui/Button";
 import Header from "../ui/Header";
-import TextInput from "../ui/TextInput";
 import ModifiedTextField from "./ModifiedTextField";
+
+const StyledButton = styled.button`
+  background-color: var(--blue);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  font-style: ${(props) => props.theme.b1.fontStyle};
+  font-family: ${(props) => props.theme.b1.fontFamily};
+  font-weight: ${(props) => props.theme.b1.fontWeight};
+  font-size: ${(props) => props.theme.b1.fontSize};
+  line-height: ${(props) => props.theme.b1.lineHeight};
+  color: ${(props) => props.theme.b1.color};
+`;
 
 const ToggleContainer = styled.div`
   display: ${(props) => (props.visible ? "flex" : "none")};
@@ -20,7 +36,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 1rem;
+  row-gap: 2rem;
+  padding: 2rem 2rem;
 `;
 export default function Modal({ link, closeModal, visible }) {
   return (
@@ -29,7 +46,7 @@ export default function Modal({ link, closeModal, visible }) {
         <img src="/person_background.png" alt="person with background"></img>
         <Header variant="h2">your shortening:</Header>
         <ModifiedTextField link={link}></ModifiedTextField>
-        <Button onClick={closeModal}>close</Button>
+        <StyledButton onClick={closeModal}>close</StyledButton>
       </Container>
     </ToggleContainer>
   );
