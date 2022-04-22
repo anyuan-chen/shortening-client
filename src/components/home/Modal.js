@@ -28,7 +28,7 @@ export default function Modal({ link, closeModal, visible }) {
       <Container>
         <img src="/person_background.png" alt="person with background"></img>
         <Header variant="h2">your shortening:</Header>
-        <ModifiedTextField></ModifiedTextField>
+        <ModifiedTextField link={link}></ModifiedTextField>
         <Button onClick={closeModal}>close</Button>
       </Container>
     </ToggleContainer>

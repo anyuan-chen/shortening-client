@@ -66,24 +66,25 @@ const Sky = styled.div`
 const SERVER_URL = process.env.SERVER_URL;
 export default function Home() {
   const [link, setLink] = useState("");
-  const [modalLink, setModalLink] = useState("");
+  const [modalLink, setModalLink] = useState("google.com");
   const [modalVisible, setModalVisible] = useState(true);
 
   const submitLink = async () => {
-    const data = { long: link };
-    const response = await fetch(SERVER_URL, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      headers: { "Content-Type": "application/json" },
-      body: data,
-    });
-    setModalLink(response);
+    // const data = { long: link };
+    // const response = await fetch(SERVER_URL, {
+    //   method: "POST",
+    //   mode: "cors",
+    //   cache: "no-cache",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: data,
+    // });
+    // setModalLink(response);
+    setModalVisible(true);
   };
 
   return (
     <>
-      <Container modalVisible = {modalVisible}>
+      <Container modalVisible={modalVisible}>
         <Content>
           <LoginBar>
             <LoginButton href="/login">Log in</LoginButton>
@@ -107,7 +108,7 @@ export default function Home() {
         </Circles>
       </Container>{" "}
       <Modal
-        link={link}
+        link={modalLink}
         closeModal={() => setModalVisible(false)}
         visible={modalVisible}
       ></Modal>

@@ -13,11 +13,15 @@ const Container = styled.div`
   align-items: flex-end;
 `;
 
-export default function ModifiedTextField() {
+export default function ModifiedTextField({ link }) {
   return (
     <Container>
-      <Text variant="f1">hi</Text>
-      <button>
+      <Text variant="f1">{link}</Text>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(link);
+        }}
+      >
         <img src="/copy.svg" alt="copy button"></img>
       </button>
     </Container>
