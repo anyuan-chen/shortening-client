@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Header from "../components/ui/Header";
 import TextInput from "../components/ui/TextInput";
@@ -6,6 +6,8 @@ import Button from "../components/ui/Button";
 import LoginButton from "../components/ui/LoginButton";
 import { useState } from "react";
 import Modal from "../components/home/Modal";
+import useLoggedIn from "../hooks/useLoggedIn";
+import { useNavigate } from "react-router-dom";
 const LoginBar = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -66,9 +68,17 @@ const Sky = styled.div`
   background: var(--sky);
 `;
 export default function Home() {
+  const navigate = useNavigate();
   const [link, setLink] = useState("");
   const [modalLink, setModalLink] = useState("google.com");
   const [modalVisible, setModalVisible] = useState(false);
+  const loggedIn = useLoggedIn();
+  useEffect(() => {
+    console.log(loggedIn);
+    if (loggedIn === true) {
+      navigate("/dashboard");
+    }
+  }, [loggedIn, navigate]);
 
   const submitLink = async () => {
     // const data = { long: link };
