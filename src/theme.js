@@ -15,6 +15,14 @@ const theme = {
     color: "var(--ocean)",
     lineHeight: "48px",
   },
+  h2black: {
+    fontFamily: "ITC Avant Garde",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "36px",
+    color: "black",
+    lineHeight: "48px",
+  },
   h3: {
     fontFamily: "ITC Avant Garde",
     fontStyle: "normal",

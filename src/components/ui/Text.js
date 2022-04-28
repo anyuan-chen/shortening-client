@@ -25,6 +25,7 @@ const T2 = styled.p`
   line-height: ${(props) => props.theme.t2.lineHeight};
   color: ${(props) => props.theme.t2.color};
 `;
+
 export default function Text({ children, variant }) {
   if (variant === "f1") {
     return <F1>{children}</F1>;
