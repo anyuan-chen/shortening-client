@@ -25,7 +25,6 @@ function useLoggedIn() {
     fetchData();
     console.log(loggedIn);
   }, []);
-
   return loggedIn;
 }
 
